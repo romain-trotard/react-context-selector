@@ -1,6 +1,6 @@
 {
-  "name": "react-context-selector",
-  "version": "1.0.0",
+  "name": "@rtrstack/react-context-selector",
+  "version": "0.0.1",
   "license": "MIT",
   "description": "Library to supercharge React context and optimize re-render",
   "author": "Romain Trotard",
