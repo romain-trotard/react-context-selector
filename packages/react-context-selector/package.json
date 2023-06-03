@@ -1,0 +1,31 @@
+{
+  "name": "react-context-selector",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Library to supercharge React context and optimize re-render",
+  "author": "Romain Trotard",
+  "type": "module", 
+  "source": "src/index.ts",
+   "exports": {
+    "require": "./dist/react-context-selector.cjs",
+    "default": "./dist/react-context-selector.modern.js"
+  },
+  "main": "./dist/react-context-selector.cjs",
+  "module": "./dist/react-context-selector.module.js",
+  "unpkg": "./dist/react-context-selector.umd.js",
+  "sideEffects": false,
+  "scripts": {
+    "build": "microbundle"
+  },
+  "files": [
+      "dist"
+  ],
+  "devDependencies": {
+    "@types/react": "^18.2.8",
+    "microbundle": "^0.15.1",
+    "react": "^18.2.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}
