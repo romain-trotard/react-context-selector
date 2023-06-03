@@ -8,5 +8,11 @@
     "volta": {
         "node": "18.7.0",
         "pnpm": "8.6.0"
+    },
+    "scripts": {
+        "format": "rome format . --write"
+    },
+    "devDependencies": {
+        "rome": "^12.1.3"
     }
 }

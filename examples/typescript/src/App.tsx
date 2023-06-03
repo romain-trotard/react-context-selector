@@ -1,25 +1,25 @@
-import { memo, useState } from 'react'
-import { createContext, useContextSelector } from 'react-context-selector';
-import './App.css'
+import { memo, useState } from "react";
+import { createContext, useContextSelector } from "react-context-selector";
+import "./App.css";
 
-const MyContext = createContext<{ count: number; secondCount: number; }>({ count: 0, secondCount: 0 });
+const MyContext = createContext<{ count: number; secondCount: number }>({
+    count: 0,
+    secondCount: 0,
+});
 
 function CountDisplay() {
-    const count = useContextSelector(MyContext, values => values.count);
+    const count = useContextSelector(MyContext, (values) => values.count);
 
-    console.log('Render CountDisplay', count);
+    console.log("Render CountDisplay", count);
 
-    return (
-        <span>Count: {count}</span>
-    );
+    return <span>Count: {count}</span>;
 }
 
 const MemoCountDisplay = memo(CountDisplay);
 
-
 function App() {
-    const [count, setCount] = useState(0)
-    const [secondCount, setSecondCount] = useState(0)
+    const [count, setCount] = useState(0);
+    const [secondCount, setSecondCount] = useState(0);
 
     return (
         <MyContext.Provider value={{ count, secondCount }}>
@@ -33,7 +33,7 @@ function App() {
                 <MemoCountDisplay />
             </div>
         </MyContext.Provider>
-    )
+    );
 }
 
-export default App
+export default App;
