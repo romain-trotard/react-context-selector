@@ -24,10 +24,16 @@ function App() {
     return (
         <MyContext.Provider value={{ count, secondCount }}>
             <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>
+                <button
+                    type="button"
+                    onClick={() => setCount((count) => count + 1)}
+                >
                     count is {count}
                 </button>
-                <button onClick={() => setSecondCount((count) => count + 1)}>
+                <button
+                    type="button"
+                    onClick={() => setSecondCount((count) => count + 1)}
+                >
                     second count is {secondCount}
                 </button>
                 <MemoCountDisplay />

@@ -10,7 +10,8 @@
         "pnpm": "8.6.0"
     },
     "scripts": {
-        "format": "rome format . --write"
+        "format": "rome format . --write",
+        "lint": "rome check . --vcs-use-ignore-file true"
     },
     "devDependencies": {
         "rome": "^12.1.3"

@@ -75,7 +75,7 @@ function createContext<TOriginalValue>(initValues: TOriginalValue) {
     ).Provider = createProvider<TOriginalValue>(context.Provider);
     // Do not support `Consumer` for the moment
     // TODO rtr look to do better?
-    delete (context as any).Consumer;
+    (context as any).Consumer = undefined;
     return context as Context<TOriginalValue>;
 }
 
