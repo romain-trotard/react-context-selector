@@ -26,3 +26,6 @@ jobs:
     - name: Run check:types
       run: pnpm --filter react-context-selector check:types
 
+    - name: Run lint
+      run: pnpm lint
+
