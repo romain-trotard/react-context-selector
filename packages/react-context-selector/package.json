@@ -4,15 +4,21 @@
   "license": "MIT",
   "description": "Library to supercharge React context and optimize re-render",
   "author": "Romain Trotard",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/romain-trotard/react-context-selector.git"
+  },
   "type": "module", 
   "source": "src/index.ts",
-   "exports": {
+  "exports": {
+    "types": "./dist/index.d.ts",
     "require": "./dist/react-context-selector.cjs",
     "default": "./dist/react-context-selector.modern.js"
   },
   "main": "./dist/react-context-selector.cjs",
   "module": "./dist/react-context-selector.module.js",
   "unpkg": "./dist/react-context-selector.umd.js",
+  "types": "dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
     "build": "microbundle"
