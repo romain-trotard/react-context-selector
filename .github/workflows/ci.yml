@@ -21,8 +21,8 @@ jobs:
       run: pnpm install
 
     - name: Run tests
-      run: pnpm test -r
+      run: pnpm --filter react-context-selector test
 
     - name: Run check:types
-      run: pnpm check:types -r
+      run: pnpm --filter react-context-selector check:types
 
