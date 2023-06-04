@@ -68,7 +68,7 @@ function createProvider<T>(
 function createContext<TOriginalValue>(defaultValue: TOriginalValue) {
     const context = createContextOriginal<
         OverridenContextValue<TOriginalValue>
-    >({ getValues: () => defaultValue, subscribe: () => () => { } });
+    >({ getValues: () => defaultValue, subscribe: () => () => {} });
 
     (
         context as unknown as Context<OverridenContextValue<TOriginalValue>>
@@ -94,7 +94,7 @@ function useContextSelector<TOriginalValue, TSelectedValue>(
 }
 
 function useContext<T>(context: Context<T>) {
-    return useContextSelector(context, value => value);
+    return useContextSelector(context, (value) => value);
 }
 
 export { createContext, useContext, useContextSelector, type Context };
