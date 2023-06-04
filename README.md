@@ -17,47 +17,47 @@ const CounterContext = createContext(null);
 // even if the component does not use the count but a function which
 // has a stable reference
 function CounterButton() {
-	const { increment } = useContext(CounterContext);
+    const { increment } = useContext(CounterContext);
 
-	return (
-		<button type="button" onClick={increment}>
-			Increment
-		</button>
-	);
+    return (
+        <button type="button" onClick={increment}>
+            Increment
+        </button>
+    );
 }
 
 function CountDisplay() {
-	const { count } = useContext(CounterContext);
+    const { count } = useContext(CounterContext);
 
-	return <span>Count: {count}</span>;
+    return <span>Count: {count}</span>;
 }
 
 function CounterProvider({ children }) {
-	const [count, increment] = useReducer((prev) => prev + 1, 0);
+    const [count, increment] = useReducer((prev) => prev + 1, 0);
 
-	// We useMemo but in this example, not necessary
-	const value = useMemo(
-		() => ({
-			count,
-			increment,
-		}),
-		[count, increment],
-	);
+    // We useMemo but in this example, not necessary
+    const value = useMemo(
+        () => ({
+            count,
+            increment,
+        }),
+        [count, increment],
+    );
 
-	return (
-		<CounterContext.Provider value={value}>
+    return (
+        <CounterContext.Provider value={value}>
             {children}
         </CounterContext.Provider>
-	);
+    );
 }
 
 function App() {
-	return (
-		<CounterProvider>
-			<CounterButton />
-			<CountDisplay />
-		</CounterProvider>
-	);
+    return (
+        <CounterProvider>
+            <CounterButton />
+            <CountDisplay />
+        </CounterProvider>
+    );
 }
 ```
 
@@ -85,52 +85,58 @@ yarn add @rtrstack/react-context-selector react@^18
 
 ```tsx
 import { createContext, useContext, useMemo, useReducer } from "react";
-import { createContext, useContextSelector } from "@rtrstack/react-context-selector";
+import {
+    createContext,
+    useContextSelector,
+} from "@rtrstack/react-context-selector";
 
 const CounterContext = createContext(null);
 
 // No more re-render
 function CounterButton() {
-	const increment = useContextSelector(CounterContext, value => value.increment);
+    const increment = useContextSelector(
+        CounterContext,
+        (value) => value.increment,
+    );
 
-	return (
-		<button type="button" onClick={increment}>
-			Increment
-		</button>
-	);
+    return (
+        <button type="button" onClick={increment}>
+            Increment
+        </button>
+    );
 }
 
 function CountDisplay() {
-	const count = useContextSelector(CounterContext, value => value.count);
+    const count = useContextSelector(CounterContext, (value) => value.count);
 
-	return <span>Count: {count}</span>;
+    return <span>Count: {count}</span>;
 }
 
 function CounterProvider({ children }) {
-	const [count, increment] = useReducer((prev) => prev + 1, 0);
+    const [count, increment] = useReducer((prev) => prev + 1, 0);
 
-	const value = useMemo(
-		() => ({
-			count,
-			increment,
-		}),
-		[count, increment],
-	);
+    const value = useMemo(
+        () => ({
+            count,
+            increment,
+        }),
+        [count, increment],
+    );
 
-	return (
-		<CounterContext.Provider value={value}>
+    return (
+        <CounterContext.Provider value={value}>
             {children}
         </CounterContext.Provider>
-	);
+    );
 }
 
 function App() {
-	return (
-		<CounterProvider>
-			<CounterButton />
-			<CountDisplay />
-		</CounterProvider>
-	);
+    return (
+        <CounterProvider>
+            <CounterButton />
+            <CountDisplay />
+        </CounterProvider>
+    );
 }
 ```
 
